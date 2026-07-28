@@ -137,77 +137,78 @@ footer{margin-top:72px;font-size:12.5px;color:var(--ink-3)}
     <span class="tag" style="border-color:var(--accent);color:var(--accent)">urgent</span>
   </div>
   <p class="what">Week priority #1 per Ishay (“we need these answers fast”, 57:19). CREATED 28.07 as MRKT-4783: assignee Alexandra, due Fri 01.08, priority High, project “Retention and Expansion Q2 2026” — https://linear.app/timelinesai/issue/MRKT-4783. Text below = what went in.</p>
-  <div class="missing"><b>Missing:</b> Nothing — created. Materials check done (28.07): RevFixr's fee (€24,250) and terms live only in the Go/No-Go brief and the Fellow recap — neither is linked to her; the appendix carries their diagnosis and method, prices stripped per the 20.07 decision. The linked intake doc has no RevFixr fees (internal pricing/churn data she needs for question 2; she already holds Stripe read access). Churn cut (WABA / TECH / BAN) — on request.</div>
-  <pre class="draft">Retention &amp; pricing: the two strategic questions from the 27.07 weekly
+  <div class="missing"><b>Missing:</b> Nothing — created as MRKT-4783 and complete: RevFixr diagnosis in Appendix 1 (their €24,250 fee and terms stripped per the 20.07 decision; fee-bearing docs not linked), churn cancel-flow cut Mar–Jul in Appendix 2 (pulled 28.07, full 2746-session pull, truncation guard passed), intake doc + activation pulse linked.</div>
+  <pre class="draft">## Why now
+Growth is currently blocked by two gaps (Anton + Ishay weekly, 27.07): **trial-to-paid conversion** and **retention**. Context:
+- New paid seats keep falling, while WhatsApp-connected volume did not fall proportionally — the leak is conversion and retention, not top-of-funnel.
+- Deals got small: big custom-discount deals (100+ seats, used to be 1–2 a week) disappeared; recent deals skew 5–20 seats.
+- We recently lost a serious mid-market client; MRR is near-flat — right now "small growth" mostly means "absence of loss".
+- Outside view (HelpScout founder, via Ishay): for SMB/mid-market, message sync with the CRM may be an **activation** value — easy to get, and once absorbed, easy to leave. Retention likely needs value on top of the sync itself. His pricing point: a churned user saying "too expensive" at an unchanged price really means perceived value dropped; a single per-seat metric has stopped working for many SaaS over the last half-year.
 
-WHY NOW
-Growth is currently blocked by two gaps (Anton + Ishay weekly, 27.07):
-trial-to-paid conversion and retention. Context:
-- New paid seats keep falling, while WhatsApp-connected volume did not fall
-  proportionally — the leak is conversion and retention, not top-of-funnel.
-- Deals got small: big custom-discount deals (100+ seats, used to be 1–2 a
-  week) disappeared; recent deals skew 5–20 seats.
-- We recently lost a serious mid-market client; MRR is near-flat — right now
-  "small growth" mostly means "absence of loss".
-- Outside view (HelpScout founder, via Ishay): for SMB/mid-market, message
-  sync with the CRM may be an ACTIVATION value — easy to get, and once
-  absorbed, easy to leave. Retention likely needs value on top of the sync
-  itself. His pricing point: a churned user saying "too expensive" at an
-  unchanged price really means perceived value dropped; a single per-seat
-  metric has stopped working for many SaaS over the last half-year.
+## Question 1 — retention value
+What should we add for CRM-integration users so they stay past the initial sync value? Not necessarily shared inbox or mass messaging — possibly a different use case entirely. Where do you see hooks in our data, customer feedback, and your onboarding work?
 
-QUESTION 1 — RETENTION VALUE
-What should we add for CRM-integration users so they stay past the initial
-sync value? Not necessarily shared inbox or mass messaging — possibly a
-different use case entirely. Where do you see hooks in our data, customer
-feedback, and your onboarding work?
+## Question 2 — pricing metric
+What additional pricing factor could we add to per-seat — short of jumping to usage-based? RevFixr's diagnosis (appendix below) is your main input — use it as input, not as a template.
 
-QUESTION 2 — PRICING METRIC
-What additional pricing factor could we add to per-seat — short of jumping
-to usage-based? RevFixr's diagnosis (appendix below) is your main input —
-use it as input, not as a template.
+## Materials
+- RevFixr's approach &amp; diagnosis — summarized in the appendix below
+- Our intake answers for RevFixr — deep context on pricing structure, discounting, churn, objections and competitors, with verified numbers (use the "Validation v2" block at the bottom as authoritative): https://linear.app/timelinesai/document/revfixr-intake-questions-and-replies-b17568158e7e
+- Churn cancel-flow cut (reasons bucketed: BAN / TECH / WABA, Mar–Jul 2026) — **Appendix 2 below**, pulled 28.07
+- [Activation pulse dashboard](https://activation-pulse-share.vercel.app/) + your own CustomerIO/onboarding learnings
 
-MATERIALS
-- RevFixr's approach &amp; diagnosis — summarized in the APPENDIX below
-- Our intake answers for RevFixr — deep context on pricing structure,
-  discounting, churn, objections and competitors, with verified numbers
-  (use the "Validation v2" block at the bottom as authoritative):
-  https://linear.app/timelinesai/document/revfixr-intake-questions-and-replies-b17568158e7e
-- Churn cancel-flow data (reasons bucketed: WABA / technical / bans) — we
-  will share the latest cut
-- Activation pulse dashboard + your own CustomerIO/onboarding learnings
+## Deliverable
+A written first-pass **this week**: for each question — your take, the evidence behind it, and 2–3 concrete moves we could test. A doc or a long comment here; we'll do a call once it's in.
 
-DELIVERABLE
-A written first-pass this week: for each question — your take, the evidence
-behind it, and 2–3 concrete moves we could test. A doc or a long comment
-here; we'll do a call once it's in.
+## Appendix 1 — RevFixr's diagnosis of us (approach summary)
+RevFixr is a SaaS pricing consultancy (Amsterdam) we evaluated in Jun–Jul 2026. Their read on us — largely confirmed by our own data:
+- Net revenue retention is below 100% (~96%/mo blended): the base is in net contraction — seat expansion does not outrun churn + contraction.
+- Inverted retention: top-tier customers decline while bottom-tier grows; the top MRR quartile is ~69% of revenue with the worst (and falling) retention.
+- No monetization-escalation levers: nothing that charges heavier or more complex users more (no triggers, caps, limits).
+- Volume discounting is backwards: bigger accounts pay LESS per seat while getting more value; all discounting is squeezed onto the one seat dimension.
+- Seat-only pricing "cost-stacks" against the CRM: buyers mentally add our seat price to HubSpot's seat price instead of judging our own value.
+- Their thesis: selective monetization of larger accounts (upgrade ladder, add-ons, gated compliance) rather than equal per-seat treatment.
 
-APPENDIX — REVFIXR'S DIAGNOSIS OF US (approach summary)
-RevFixr is a SaaS pricing consultancy (Amsterdam) we evaluated in Jun–Jul
-2026. Their read on us — largely confirmed by our own data:
-- Net revenue retention is below 100% (~96%/mo blended): the base is in net
-  contraction — seat expansion does not outrun churn + contraction.
-- Inverted retention: top-tier customers decline while bottom-tier grows;
-  the top MRR quartile is ~69% of revenue with the worst (and falling)
-  retention.
-- No monetization-escalation levers: nothing that charges heavier or more
-  complex users more (no triggers, caps, limits).
-- Volume discounting is backwards: bigger accounts pay LESS per seat while
-  getting more value; all discounting is squeezed onto the one seat
-  dimension.
-- Seat-only pricing "cost-stacks" against the CRM: buyers mentally add our
-  seat price to HubSpot's seat price instead of judging our own value.
-- Their thesis: selective monetization of larger accounts (upgrade ladder,
-  add-ons, gated compliance) rather than equal per-seat treatment.
-Their method: design packaging first, then validate deal-by-deal on
-custom-quote deals BEFORE touching the public pricing page (works from as
-few as ~5 sales conversations).
-Public case they cite: Geogap — segment-based plans → ARPU +65%, MRR +47%,
-churn −11% (https://revfixr.com/geogap). Pricing pages they point to as
-models: Avoma, Basecamp, GoHighLevel, Fireflies.ai (seat-tier escalation).
-Internal caveat to keep in mind: their playbook leans enterprise, while 54%
-of our customers have exactly 1 seat and 69% have ≤2 — treat this as input
-for your own judgement on questions 1–2, not as the answer.</pre>
+Their method: design packaging first, then validate deal-by-deal on custom-quote deals **before** touching the public pricing page (works from as few as ~5 sales conversations).
+
+Public case they cite: [Geogap](https://revfixr.com/geogap) — segment-based plans → ARPU +65%, MRR +47%, churn −11%. Pricing pages they point to as models: Avoma, Basecamp, GoHighLevel, Fireflies.ai (seat-tier escalation).
+
+Keep in mind: their playbook leans enterprise, while 54% of our customers have exactly 1 seat and 69% have ≤2 — treat this as input for your own judgement on questions 1–2, not as the answer.
+
+## Appendix 2 — churn cancel-flow cut (Churnkey, pulled 28.07.2026)
+Cancel-flow survey sessions of customers who canceled, bucketed by reason with precedence **BAN** (WhatsApp number bans) &gt; **TECH** (disconnects, CRM-sync reliability) &gt; **WABA** (leaving for official WhatsApp API tools). MRR is Churnkey's snapshot normalized to per-month (annual ÷12) — a directional weight, not billing truth. Most cancels leave no bucketable reason, so "in-scope" &lt; "canceled" by design.
+
+**Monthly (canceled: count / $MRR):**
+- 2026-03: BAN 3 / $98 · TECH 11 / $358 · WABA 7 / $255
+- 2026-04: BAN 9 / $615 · TECH 18 / $760 · WABA 8 / $475
+- 2026-05: BAN 8 / $609 · TECH 16 / $1,125 · WABA 10 / $305
+- 2026-06: BAN 16 / $815 · TECH 25 / $1,444 · WABA 11 / $560
+- 2026-07 (through 28.07): BAN 8 / $495 · TECH 24 / $1,018 · WABA 13 / $505
+
+**Fortnight trend:**
+- Jun 16–30: WABA 4 / $370 · TECH 10 / $749 · BAN 4 / $190 (62 canceled, 18 in-scope)
+- Jun 30 – Jul 14: WABA 5 / $230 · TECH 13 / $586 · BAN 5 / $195 (64 canceled, 23 in-scope)
+- Jul 14–28: WABA 8 / $275 · TECH 11 / $432 · BAN 4 / $380 (83 canceled, 23 in-scope)
+
+What stands out:
+- **TECH is the biggest bucket every single month**, in both count and dollars — disconnects and CRM-sync reliability.
+- **WABA-switching climbs steadily:** 7 → 8 → 10 → 11 → 13 by month — people leaving *for* official WhatsApp API tools.
+- BAN spiked in June (16 / $815); July is running lower.
+
+**Jul 14–28 cancels at ≥$30 MRR — the voices behind the numbers:**
+- $120 [TECH] subscriptions@epicholding.co — "CRM sync is unreliable or broken"
+- $120 [BAN] software@virtustant.com — "we got banned too often"
+- $100 [BAN] jonas@primebid.com.br — "Banimento do WhatsApp"
+- $80 [BAN] management@kerato.com — "WhatsApp Ban"
+- $80 [BAN] it@outboundinvestment.net — "WhatsApp Ban"
+- $60 [WABA] prato-emergency@monash.edu — switching to Official WhatsApp Cloud API
+- $50 [WABA] shashank@bluetick.co.in — Official WhatsApp Integration; "make it easier to use"
+- $50 [TECH] administratie@camerainstallatie.nl — Technical Issues
+- $40 [WABA] christian.stocchi@kromastudio.it — Official WhatsApp Integration; "integrate with monday flows for statuses"
+- $40 [TECH] darius.pantea@corsenso.ro — "WhatsApp disconnects too often"
+- $40 [TECH] chris@ccstudio.co.za — "WhatsApp disconnects too often"
+- $32 [TECH] automations@saliconsulting.com — Technical Issues
+</pre>
 </div>
 
 <div class="card dcard top" data-owner="orkhan">
