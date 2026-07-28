@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Черновики недели 27.07.2026 — на проверку</title>
+<style>/* ============================================================================
+   checkpoint-html — design system tokens (paste into every page's <style>)
+   Visual identity: carmine accent, Segoe Variable display + Cascadia mono,
+   theme-aware (light/dark via prefers-color-scheme). Self-contained, no fonts
+   to load (system fonts only), no external anything.
+   Accent #9E3039 (light) / #C4525E (dark) is validated colorblind-safe and
+   ≥3:1 vs surface in both modes (dataviz validator). Keep it.
+   ============================================================================ */
+:root{
+  --bg:#F2F3F1; --surface:#FCFCFB; --ink:#1B1E20; --ink-2:#545A5E; --ink-3:#878D91;
+  --accent:#9E3039; --accent-soft:rgba(158,48,57,.08); --line:#DFE2DD; --chip:#EAECE7;
+  --gold:#8a6d1f;            /* secondary flag / "close call" */
+  --easy:#3f7d4e; --medium:#8a6d1f; --hard:#9E3039; --closed:#6b6f72;  /* verdict ramp */
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:72px;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#141617; --surface:#1D2022; --ink:#E9EBEB; --ink-2:#A7ADB0; --ink-3:#71777A;
+  --accent:#C4525E; --accent-soft:rgba(196,82,94,.14); --line:#33383A; --chip:#26292B;
+  --gold:#c9a94a;
+  --easy:#6bbf80; --medium:#c9a94a; --hard:#C4525E; --closed:#8b9094;
+}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);
+  font-family:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:48px 24px 96px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono,.eyebrow,.n,.kicker{font-family:"Cascadia Code",Consolas,ui-monospace,monospace}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+  font-size:clamp(34px,6vw,52px);font-weight:750;letter-spacing:-.03em;line-height:1.03}
+h2{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+  font-size:24px;font-weight:700;letter-spacing:-.015em}
+.lede{margin-top:16px;font-size:18px;color:var(--ink-2);max-width:46em}
+
+/* stat tiles */
+.stats{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.stat .v{font-family:"Cascadia Code",monospace;font-size:22px;font-weight:700}
+.stat .l{font-size:12px;color:var(--ink-3);margin-top:2px}
+
+/* filter chips (sticky toolbar) */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:"Cascadia Code",monospace;font-size:12px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink-2);border-radius:20px;padding:5px 12px;cursor:pointer}
+.chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* cards */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card.top{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}   /* highlight */
+
+/* horizontal score/weight bar */
+.bar{display:flex;align-items:center;gap:8px}
+.bar .track{flex:1;height:8px;background:var(--chip);border-radius:4px;overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(--accent);border-radius:0 4px 4px 0}
+.bar .v{font-family:"Cascadia Code",monospace;font-size:13px;font-weight:600}
+
+/* nav card (hub) */
+.nav{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:22px;text-decoration:none;color:inherit;transition:border-color .15s}
+.nav:hover{border-color:var(--accent)}
+.nav .big{font-family:"Cascadia Code",monospace;font-size:30px;font-weight:750;color:var(--accent);margin-top:12px}
+
+/* status banner (hub) */
+.status{margin-top:24px;display:inline-flex;align-items:center;gap:10px;background:var(--accent-soft);
+  border:1px solid var(--accent);border-radius:10px;padding:10px 16px;font-size:14px}
+.status b{color:var(--accent)}
+
+.hidden{display:none!important}
+@media(max-width:680px){.wrap{padding:32px 16px 64px}}
+
+.pipeline{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.step{font-family:"Cascadia Code",monospace;font-size:13px;border-radius:8px;padding:7px 14px;border:1px solid var(--line);color:var(--ink-3);background:var(--surface)}
+.step.done{color:var(--easy);border-color:var(--easy)}
+.step.now{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:700}
+.step-arrow{color:var(--ink-3)}
+.quote{margin-top:32px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:20px 24px}
+.quote p{font-size:19px;font-style:italic}
+.quote .who{margin-top:10px;font-size:13px;color:var(--ink-3)}
+.grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+section{margin-top:56px}
+h2 .cnt{color:var(--ink-3);font-weight:400}
+.list{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.list .card{font-size:14.5px}
+details{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+details summary{cursor:pointer;padding:14px 20px;font-weight:600}
+details .list{padding:0 20px 18px;margin-top:0}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0;margin-top:34px;border-bottom:1px solid var(--line)}
+.dcard{margin-top:18px}
+.dhead{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+.dhead .kicker{color:var(--accent);font-size:14px;font-weight:700}
+.dhead h3{font-size:18px;letter-spacing:-.01em}
+.tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:"Cascadia Code",monospace;font-size:11.5px;border:1px solid var(--line);border-radius:20px;padding:3px 10px;color:var(--ink-2);background:var(--chip)}
+.tag.owner{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.what{margin-top:12px;font-size:14.5px;color:var(--ink-2)}
+.missing{margin-top:10px;font-size:14px;border:1px solid var(--gold);border-radius:8px;padding:9px 13px;color:var(--gold);background:transparent}
+.missing b{font-weight:700}
+pre.draft{margin-top:14px;font-family:"Cascadia Code",Consolas,ui-monospace,monospace;font-size:13px;line-height:1.55;background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:16px 18px;white-space:pre-wrap;overflow-x:auto}
+.back{font-size:14px}
+footer{margin-top:72px;font-size:12.5px;color:var(--ink-3)}
+</style>
+</head><body><div class="wrap">
+<div class="eyebrow"><a class="back" href="index.html">← обложка недели</a></div>
+<h1>Черновики: 7 штук, создано — ноль</h1>
+<p class="lede">Каждая карточка — что будет создано и где, чего не хватает, и полный текст (по-английски, его увидит команда). Скажи, что поправить, что выкинуть, что заводить.</p>
+<div class="stats">
+  <div class="stat"><div class="v">5</div><div class="l">новые задачи Linear</div></div>
+  <div class="stat"><div class="v">1</div><div class="l">комментарий в MRKT-4763</div></div>
+  <div class="stat"><div class="v">1</div><div class="l">сообщение в Slack</div></div>
+  <div class="stat"><div class="v">6</div><div class="l">ждут вложений от тебя</div></div>
+</div>
+
+<div class="toolbar"><div class="chips">
+  <button class="chip active" data-f="all">Все · 7</button>
+  <button class="chip" data-f="alexandra">Александра · 1</button>
+  <button class="chip" data-f="orkhan">Орхан · 3</button>
+  <button class="chip" data-f="musaib">Мусаиб · 2</button>
+  <button class="chip" data-f="dmitri">Дмитрий · 1</button>
+</div></div>
+
+
+<div class="card dcard top" data-owner="alexandra">
+  <div class="dhead"><span class="kicker">#1</span><h3>Александра — два вопроса: удержание и цена</h3></div>
+  <div class="tags">
+    <span class="tag owner">Александра</span>
+    <span class="tag">новая задача Linear</span>
+    <span class="tag" style="border-color:var(--accent);color:var(--accent)">срочное</span>
+  </div>
+  <p class="what">Приоритет №1 недели по Ишаю («нам на эти вопросы нужны ответы побыстрее», 57:19). Александра при этом молчит: Антон писал в пятницу и в понедельник — без ответа.</p>
+  <div class="missing"><b>Не хватает:</b> Материалы RevFixr (без цен) прикладывает Антон — этим закрывается его долг с 20.07.</div>
+  <pre class="draft">Retention &amp; pricing: two questions that need fast answers
+
+Growth is currently blocked by two gaps: trial-to-paid conversion and retention
+(weekly sync 27.07). Please wrap up the current onboarding work and switch to this first.
+
+1. What extra value can we add for CRM-integration users so they stay?
+   Message sync looks like activation-stage value; retention likely needs
+   something on top of it.
+2. Per-seat pricing is losing its power as the only metric. What additional
+   pricing factor could we add — without jumping straight to usage-based?
+   We'll share RevFixr's approach materials as input.
+
+Deliverable: a written first-pass take on both questions (doc or a comment
+here). Needed this week.</pre>
+</div>
+
+<div class="card dcard top" data-owner="orkhan">
+  <div class="dhead"><span class="kicker">#2</span><h3>Орхан — анти-черн бот: где запуск?</h3></div>
+  <div class="tags">
+    <span class="tag owner">Орхан</span>
+    <span class="tag">комментарий в MRKT-4763</span>
+    <span class="tag" style="border-color:var(--accent);color:var(--accent)">срочное</span>
+  </div>
+  <p class="what">На встрече Антон сказал Ишаю «запускать будет на днях» (37:48), а по трекеру Орхан молчит в задаче с 22.07, напоминание просрочено с 26.07. Не новая задача — пинг в существующей.</p>
+  <div class="missing"><b>Не хватает:</b> За Антоном — документ с целями и условием остановки для новой роли Орхана (обещан ещё 20.07).</div>
+  <pre class="draft">Status check on the anti-churn bot. On yesterday's weekly I committed to a
+launch within days — please post here today: (1) what's already running,
+(2) what's blocking you, (3) your launch ETA.
+
+If a call helps — grab 30 min with me today or tomorrow. I also want to share
+first-launch lessons from the WABA loop and discuss how we turn the weekly
+customer feedback into actions.</pre>
+</div>
+
+<div class="card dcard" data-owner="orkhan">
+  <div class="dhead"><span class="kicker">#3</span><h3>Орхан — «бот роста» для GoHighLevel</h3></div>
+  <div class="tags">
+    <span class="tag owner">Орхан</span>
+    <span class="tag">новая задача Linear</span>
+    
+  </div>
+  <p class="what">Как битрикс-бот, только для GoHighLevel (71:12). Обмен по загрузке назвал сам Ишай: виртуальные номера (PRO-180) откладываем — «не распыляться» (49:56).</p>
+  <div class="missing"><b>Не хватает:</b> Ссылка на заготовку битрикс-бота, от которой Орхану отталкиваться.</div>
+  <pre class="draft">GoHighLevel growth bot — replicate the Bitrix growth loop
+
+Weekly sync 27.07: GoHighLevel joins the weekly report, and we want the same
+growth bot we already run for Bitrix24 — tracking new GHL users and feeding
+the weekly numbers.
+
+- Base it on the existing Bitrix bot: [link — Anton]
+- Priority trade-off (agreed with Ishay): virtual numbers (PRO-180) are
+  deferred until this is running. Don't context-switch to them.
+
+First expected post here: bot skeleton running + what data it already pulls.</pre>
+</div>
+
+<div class="card dcard" data-owner="orkhan">
+  <div class="dhead"><span class="kicker">#4</span><h3>Орхан — товары для виртуальных номеров в Stripe MessageHub</h3></div>
+  <div class="tags">
+    <span class="tag owner">Орхан</span>
+    <span class="tag">новая задача Linear · маленькая</span>
+    
+  </div>
+  <p class="what">Игорь подтвердил: счёт Stripe MessageHub можно использовать под виртуальные номера (36:17). Заблокирована, пока Антон не пригласит Орхана в аккаунт. Если откладываем виртуальные номера целиком (черновик 3) — эту тоже паркуем.</p>
+  <div class="missing"><b>Не хватает:</b> Приглашение от Антона + две строчки: какие товары и цены заводить.</div>
+  <pre class="draft">Create virtual-number products in the MessageHub Stripe account
+
+Igor confirmed (weekly 27.07) we can use the MessageHub Stripe account for our
+virtual numbers. Once Anton invites you as a member:
+- create separate products per his spec: [products + prices — Anton]
+- keep them clearly separated from MessageHub's own products.</pre>
+</div>
+
+<div class="card dcard" data-owner="musaib">
+  <div class="dhead"><span class="kicker">#5</span><h3>Мусаиб — отзывы для Битрикс по особым инструкциям</h3></div>
+  <div class="tags">
+    <span class="tag owner">Мусаиб</span>
+    <span class="tag">новая задача Linear</span>
+    
+  </div>
+  <p class="what">Обещание Ишаю ещё с прошлой недели, на встрече Антон признал, что не сделано (48:36). Первая партия из 5 отзывов закрыта (MRKT-4606).</p>
+  <div class="missing"><b>Не хватает:</b> Сами тексты: решение от 20.07 — ~20 текстов второй партии пишет Антон (тексты Мусаиба были слишком шаблонные). Без этого задача пустая.</div>
+  <pre class="draft">Bitrix24 marketplace reviews — batch 2, per special instructions
+
+Batch 1 (5 reviews) is done (MRKT-4606). For batch 2 the review texts and
+pacing instructions come from Anton — attached below. Post them gradually,
+not in one burst, and log each posted review in a comment here.
+
+[review texts + pacing instructions — Anton]</pre>
+</div>
+
+<div class="card dcard" data-owner="musaib">
+  <div class="dhead"><span class="kicker">#6</span><h3>Мусаиб — пилот: наблюдение за парком ботов</h3></div>
+  <div class="tags">
+    <span class="tag owner">Мусаиб</span>
+    <span class="tag">новая задача Linear</span>
+    
+  </div>
+  <p class="what">Смена роли, согласована с Ишаем («Давай попробуем», 22:47): человек-наблюдатель над автоматическими процессами. Цель — один Мусаиб спокойно ведёт до пяти процессов уровня AI-SDR (44:20). Лендинги не бросает — это параллельная нагрузка (22:49).</p>
+  <div class="missing"><b>Не хватает:</b> Точный список от Антона: за какими досками и каналами следить.</div>
+  <pre class="draft">Pilot: monitoring our AI-process fleet
+
+New standing function (weekly sync 27.07): you become the human eyes over our
+running AI processes — today the AI SDR (replies approval, as now) and the
+WABA loop; the anti-churn bot joins once live.
+
+Daily: check the boards/channels [exact list — Anton], note sent/replied/
+errors, flag anything odd to Anton same day.
+Weekly: one short summary post — numbers + what needed human intervention.
+
+Goal of the pilot: prove one person can comfortably run 5 such processes.</pre>
+</div>
+
+<div class="card dcard" data-owner="dmitri">
+  <div class="dhead"><span class="kicker">#7</span><h3>Дмитрий — прицел рассылок: брать крупнее</h3></div>
+  <div class="tags">
+    <span class="tag owner">Дмитрий</span>
+    <span class="tag">сообщение в Slack</span>
+    
+  </div>
+  <p class="what">Не задача, а короткая обратная связь — на встрече это мягкое намерение (15:03): сделки измельчали до 5–20 мест, крупные со спецскидками пропали из потока Кирилла (14:26).</p>
+  <div class="missing"><b>Не хватает:</b> Ничего — но отправлять только после «го» Антона.</div>
+  <pre class="draft">Feedback from the weekly: the flow works, but our recent deals skew small
+(5–20 seats), and the big custom-discount deals (100+ seats, used to be 1–2
+a week via Cyril) have disappeared. Let's point part of the targeting
+up-market — bigger companies, bigger seat counts. Can you adjust the ICP
+filters this week?</pre>
+</div>
+
+<script>
+document.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  ch.classList.add('active');
+  const f = ch.dataset.f;
+  document.querySelectorAll('.dcard').forEach(card =>
+    card.classList.toggle('hidden', f !== 'all' && card.dataset.owner !== f));
+}));
+</script>
+<footer>Сгенерировано 28.07.2026 · источник: team-ops/meetings/2026-07-27-growth-weekly-ishay-transcript.md · в Linear ничего не создаётся без «го» Антона</footer>
+</div></body></html>
